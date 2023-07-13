@@ -14,5 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "REST-Rant is an app where users can review restaurants.",
+  "devDependencies": {}
 }
