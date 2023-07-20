@@ -15,5 +15,10 @@
   "author": "",
   "license": "ISC",
   "description": "REST-Rant is an app where users can review restaurants.",
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/node": "^7.22.6",
+    "@babel/preset-react": "^7.22.5",
+    "esm": "^3.2.25"
+  }
 }
