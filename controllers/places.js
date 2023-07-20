@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
 })
 
 
-const places = require('../models/places.js')
+const places = require('../modules/places.js')
 
 router.get('/', (req, res) => {
     res.render('places/index', { places })
