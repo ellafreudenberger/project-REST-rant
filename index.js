@@ -5,7 +5,8 @@ require('./index.js'); // Replace 'your-main-file.js' with the actual entry poin
 // Modules and Globals
 require('dotenv').config()
 const express = require('express')
-const app = express()
+const methodOverride = require('method-override')
+
 
 // ECMAScript Modules to enable support for modern JavaScript syntax, including JSX in Node.js
 require = require("esm")(module);
@@ -16,6 +17,9 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
+
 
 // Body Parser
 app.use(express.urlencoded({ extended: true }))
