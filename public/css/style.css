@@ -38,3 +38,17 @@ main {
   margin-left: 20px;
   background-color: white;
 }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sticky-footer {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}
