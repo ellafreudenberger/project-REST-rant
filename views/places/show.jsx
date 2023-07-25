@@ -28,11 +28,28 @@ function Show(data) {
             <a href={`/places/${data.id}/edit`} className="btn btn-warning">
               Edit
             </a>
-            <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
-              <button type="submit" className="btn btn-danger">
-                Delete
-              </button>
-            </form>
+            <form action={`/places/${data.place._id}/comments`} method="POST">
+  <div>
+    <label htmlFor="author">Author:</label>
+    <input type="text" id="author" name="author" required />
+  </div>
+  <div>
+    <label htmlFor="content">Content:</label>
+    <textarea id="content" name="content" required></textarea>
+  </div>
+  <div>
+    <label htmlFor="starRating">Star Rating:</label>
+    <input type="number" id="starRating" name="starRating" step="0.5" required />
+  </div>
+  <div>
+    <label htmlFor="rant">Rant:</label>
+    <input type="checkbox" id="rant" name="rant" />
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
           </div>
         </div>
       </main>
