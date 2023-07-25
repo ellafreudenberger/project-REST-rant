@@ -6,11 +6,11 @@ module.exports = function index(data) {
   return <placesindex data={data} />;
 };
 
-let placesFormatted = data.places.map((place, index) => {
+let placesFormatted = data.places.map((place) => {
   return (
-    <div className="col-sm-6">
+    <div className="col-sm-6" key={place.id}>
       <h2>
-        <a href={`/places/${index}`} >
+        <a href={`/places/${place.id}`}>
           {place.name}
         </a>
       </h2>
@@ -22,5 +22,6 @@ let placesFormatted = data.places.map((place, index) => {
         Located in {place.city}, {place.state}
       </p>
     </div>
-  )
-})
+  );
+});
+
