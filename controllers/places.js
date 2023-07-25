@@ -4,6 +4,11 @@ const PlacesIndex = require('./placesindex.jsx'); // Use the .jsx extension and 
 
 const places = require('../modules/places.js');
 
+router.post('/', (req, res) => {
+  console.log(req.body)
+  res.send('POST /places')
+})
+
 router.get('/', (req, res) => {
   const data = { places };
   const placesFormatted = index(data); // Call the index function to format places data
