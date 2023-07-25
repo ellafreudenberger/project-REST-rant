@@ -30,17 +30,38 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-router.get('/:id', (req, res) => {
-  res.send('GET /places/:id stub')
+router.get('/:id/edit', (req, res) => {
+  db.Place.findById(req.params.id)
+  .then(place => {
+      res.render('places/edit', { place })
+  })
+  .catch(err => {
+      res.render('error404')
+  })
 })
 
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+      res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
 
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
+
 
 router.get('/:id/edit', (req, res) => {
   res.send('GET edit form stub')
@@ -72,70 +93,4 @@ router.delete('/:id/rant/:rantId', (req, res) => {
 })
 
 module.exports = router
-
-
-
-function index(data) {
-  const placesFormatted = data.places.map((place) => {
-    return (
-      <div className="col-sm-6" key={place.name}> {/* Add a unique key prop */}
-        <h2>{place.name}</h2>
-        <p className="text-center">
-          {place.cuisines}
-        </p>
-        <img src={place.pic} alt={place.name} />
-        <p className="text-center">
-          Located in {place.city}, {place.state}
-        </p>
-      </div>
-    );
-  });
-
-  return (
-    <Def> {/* Assuming Def is the component that wraps placesFormatted */}
-      <main>
-        <h1>Places to Rant or Rave About</h1>
-        <div className="row">
-          {placesFormatted}
-        </div>
-      </main>
-    </Def>
-  );
-}
-
-function show (data) {
-  let comments = (
-    <h3 className="inactive">
-      No comments yet!
-    </h3>
-  )
-  if (data.place.comments.length) {
-    comments = data.place.comments.map(c => {
-      return (
-        <div className="border">
-          <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
-          <h4>{c.content}</h4>
-          <h3>
-            <stong>- {c.author}</stong>
-          </h3>
-          <h4>Rating: {c.stars}</h4>
-        </div>
-      )
-    })
-  }
-  return (
-      <Def>
-        <main>
-          <div className="row">
-            ...
-          </div>
-          <hr />
-          <h2>Comments</h2>
-          {comments}
-        </main>
-      </Def>
-  )
-}
-
-module.exports = show
 
