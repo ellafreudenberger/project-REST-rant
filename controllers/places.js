@@ -14,7 +14,6 @@ router.get('/:id', (req, res) => {
   })
 })
 
-
 router.post('/', (req, res) => {
   db.Place.create(req.body)
   .then(() => {

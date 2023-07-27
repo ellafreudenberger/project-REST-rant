@@ -5,7 +5,6 @@ function edit_form () {
     return (
         <Def>
           <main>
-            <h1>Edit Place</h1>
             <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
   <div className="row">
       <div className="form-group col-sm-6">
@@ -31,7 +30,6 @@ function edit_form () {
   <input className="btn btn-primary" type="submit" value="Add Place" />
   </div>
 </form>
-<h1>Edit Place</h1>
 <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
     ...
     <div className="row">
@@ -45,7 +43,6 @@ function edit_form () {
             />
         </div>
     </div>
-    ...
     <input className="btn btn-primary" type="submit" value="Update Place" />
 </form>
           </main>
