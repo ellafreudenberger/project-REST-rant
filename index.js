@@ -5,6 +5,8 @@ require('dotenv').config();
 // Modules and Globals
 const express = require('express');
 const methodOverride = require('method-override');
+const placesController = require('./controllers/places');
+
 
 // Create an Express app
 const app = express();
