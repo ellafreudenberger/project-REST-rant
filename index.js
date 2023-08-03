@@ -7,6 +7,16 @@ const express = require('express');
 const methodOverride = require('method-override');
 const placesController = require('./controllers/places');
 
+// Atlas Connection String
+const atlasConnectionString = 'mongodb+srv://restrantclient:<password>@rest-rant.kolqmge.mongodb.net/';
+
+// Set up MongoDB connection
+mongoose.connect(atlasConnectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 // Create an Express app
 const app = express();

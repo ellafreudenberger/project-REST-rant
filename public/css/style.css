@@ -1,6 +1,12 @@
 h1 {
     text-align: center;
     color: rgb(100, 105, 237);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    margin: 0;
+
   }
   
 nav {
@@ -38,7 +44,7 @@ nav a:hover {
 }
 
 body {
-  background-color: lightblue;
+  background-color: white;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -53,13 +59,14 @@ main {
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
-.stickyfooter {
+.sticky-footer {
   background-color: #f0f0f0;
   padding: 10px;
   text-align: center;
   position: sticky;
   bottom: 0;
+  width: 100%; 
 }
