@@ -3,9 +3,9 @@ const db = require('../models')
 
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
-  .populate('comments')
+  .populate('comment')
   .then(place => {
-      console.log(place.comments)
+      console.log(place.comment)
       res.render('places/show', { place })
   })
   .catch(err => {
@@ -72,7 +72,7 @@ router.post('/:id/comment', (req, res) => {
   .then(place => {
       db.Comment.create(req.body)
       .then(comment => {
-          place.comments.push(comment.id)
+          place.comment.push(comment.id)
           place.save()
           .then(() => {
               res.redirect(`/places/${req.params.id}`)

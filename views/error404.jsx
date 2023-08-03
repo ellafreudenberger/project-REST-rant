@@ -8,7 +8,7 @@ function error404 () {
               <h1>404: PAGE NOT FOUND</h1>
               <p>Oops, sorry, we can't find this page!</p>
               <div>
-                  <img src="/images/puppy.jpg" alt="Puppy"/>
+                  <img src="/css/images/puppy.jpg" alt="Puppy"/>
                 </div>
                  <div>
                  Photo by <a href="AUTHOR_LINK">Charles Deluvio</a> on <a href="UNSPLASH_LINK">Unsplash</a>

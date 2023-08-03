@@ -37,7 +37,7 @@ app.listen(port, () => {
 });
 
 // new comments
-app.post('/places/:id/comments', (req, res) => {
+app.post('/places/:id/comment', (req, res) => {
     const placeId = req.params.id;
     const { author, content, starRating, rant } = req.body;
   

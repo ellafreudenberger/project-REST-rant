@@ -43,10 +43,10 @@ return (
 )
 }
 
-let sumRatings = data.place.comments.reduce((tot, c) => {
+let sumRatings = data.place.comment.reduce((tot, c) => {
   return tot + c.stars
 }, 0)
-let averageRating = sumRatings / data.place.comments.length
+let averageRating = sumRatings / data.place.comment.length
 rating = (
   <h3>
   {Math.round(averageRating)} stars

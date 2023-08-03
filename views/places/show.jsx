@@ -2,14 +2,14 @@ const React = require('react');
 const Def = require('../default');
 
 function Show(data) {
-  let comments = (
+  let commentList = (
     <h3 className="inactive">
       No comments yet!
     </h3>
   );
 
-  if (data.place.comments.length) {
-    comments = data.place.comments.map(c => {
+  if (data.place.comment.length) {
+    commentList = data.place.comment.map(c => {
       return (
         <div className="border">
           <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
@@ -29,11 +29,11 @@ function Show(data) {
     </h3>
   );
 
-  if (data.place.comments.length) {
-    let sumRatings = data.place.comments.reduce((tot, c) => {
+  if (data.place.comment.length) {
+    let sumRatings = data.place.comment.reduce((tot, c) => {
       return tot + c.stars;
     }, 0);
-    let averageRating = Math.round(sumRatings / data.place.comments.length);
+    let averageRating = Math.round(sumRatings / data.place.comment.length);
     let stars = '';
     for (let i = 0; i < averageRating; i++) {
       stars += '⭐️';
@@ -67,12 +67,12 @@ function Show(data) {
             </div>
             <div className="Comments Section">
               <h2>Comments</h2>
-              {comments}
+              {commentList}
             </div>
             <a href={`/places/${data.id}/edit`} className="btn btn-warning">
               Edit
             </a>
-            <form action={`/places/${data.place._id}/comments`} method="POST">
+            <form action={`/places/${data.place._id}/comment`} method="POST">
               <div>
                 <label htmlFor="author">Author:</label>
                 <input type="text" id="author" name="author" required />
@@ -82,8 +82,8 @@ function Show(data) {
                 <textarea id="content" name="content" required></textarea>
               </div>
               <div>
-                <label htmlFor="starRating">Star Rating:</label>
-                <input type="number" id="starRating" name="starRating" step="0.5" required />
+                <label htmlFor="stars">Star Rating:</label>
+                <input type="number" id="stars" name="stars" step="0.5" required />
               </div>
               <div>
                 <label htmlFor="rant">Rant:</label>
@@ -101,3 +101,4 @@ function Show(data) {
 }
 
 module.exports = Show;
+
