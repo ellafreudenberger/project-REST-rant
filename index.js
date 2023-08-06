@@ -1,3 +1,6 @@
+//require Mongoose
+const mongoose = require('mongoose');
+
 // Babel for modern JavaScript syntax support in Node.js
 require('@babel/register');
 require('dotenv').config();
