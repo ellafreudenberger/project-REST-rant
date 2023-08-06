@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 const placesController = require('./controllers/places');
 
 // Atlas Connection String
-const atlasConnectionString = 'mongodb+srv://restrantclient:<password>@rest-rant.kolqmge.mongodb.net/';
+const atlasConnectionString = 'mongodb+srv://restrantclient:cooleats@rest-rant.kolqmge.mongodb.net/';
 
 // Set up MongoDB connection
 mongoose.connect(atlasConnectionString, {
